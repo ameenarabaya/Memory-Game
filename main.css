@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    /* margin: 20px auto; */
+    padding: 0;
+}
+
+.control-button {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(3, 169, 244, 0.9);
+}
+
+.control-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 15px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.Memory-contianer {
+    margin: 20px auto;
+}
+
+.Memory-contianer .memory-info {
+    height: 70px;
+    width: 758px;
+    background-color: #7ffff336;
+    display: flex;
+    margin: 20px auto;
+    padding: 5px;
+    align-items: center;
+    border: 3px solid #2196f3;
+    font-size: 25px;
+}
+
+.Memory-contianer .memory-info .memory-title,
+.Memory-contianer .memory-info .mistak {
+    flex: 1;
+}
+
+.Memory-contianer .image-container {
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(5, 140px);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.Memory-contianer .image-container.no-clicking {
+    pointer-events: none;
+}
+
+.Memory-contianer .image-container .image {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+}
+
+.Memory-contianer .image-container .image .front,
+.Memory-contianer .image-container .image .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.Memory-contianer .image-container .image .front {
+    background-color: rgba(0, 0, 0, 0.292);
+    border: 3px solid #2196f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Memory-contianer .image-container .image .front::after {
+    content: "?";
+    color: black;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.Memory-contianer .image-container .image .back img {
+    width: 100%;
+
+}
+
+.Memory-contianer .image-container .image .back {
+    transform: rotateY(180deg);
+}
+
+.Memory-contianer .image-container .image.onclick,
+.Memory-contianer .image-container .image.has-match {
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
